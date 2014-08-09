@@ -35,7 +35,8 @@ from runner.koan import *
 
 def score(dice):
     # You need to write this method
-    pass
+    
+    return sum
 
 
 class AboutScoringProject(Koan):
