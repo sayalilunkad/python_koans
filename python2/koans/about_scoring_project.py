@@ -35,7 +35,18 @@ from runner.koan import *
 
 def score(dice):
     # You need to write this method
-    
+    numbers = {}.fromkeys(range(0, 10), 0)
+
+    for d in dice:
+        numbers[d] += 1
+    sum = (numbers[1] // 3) * 1000
+
+    sum += (numbers[1] % 3) * 100
+
+    sum += (numbers[5] % 3) * 50
+
+    for r in range(2, 10):
+        sum += (numbers[r] // 3) * 100 * r
     return sum
 
 

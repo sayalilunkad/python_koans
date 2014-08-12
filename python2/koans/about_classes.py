@@ -10,10 +10,10 @@ class AboutClasses(Koan):
 
     def test_instances_of_classes_can_be_created_adding_parentheses(self):
         fido = self.Dog()
-        self.assertEqual(__, fido.__class__.__name__)
+        self.assertEqual('Dog', fido.__class__.__name__)
 
     def test_classes_have_docstrings(self):
-        self.assertMatch(__, self.Dog.__doc__)
+        self.assertMatch("Dogs need", self.Dog.__doc__)
 
     # ------------------------------------------------------------------
 
@@ -26,12 +26,12 @@ class AboutClasses(Koan):
 
     def test_init_method_is_the_constructor(self):
         dog = self.Dog2()
-        self.assertEqual(__, dog._name)
+        self.assertEqual('Paul', dog._name)
 
     def test_private_attributes_are_not_really_private(self):
         dog = self.Dog2()
         dog.set_name("Fido")
-        self.assertEqual(__, dog._name)
+        self.assertEqual('Fido', dog._name)
         # The _ prefix in _name implies private ownership, but nothing is truly
         # private in Python.
 
@@ -39,11 +39,11 @@ class AboutClasses(Koan):
         fido = self.Dog2()
         fido.set_name("Fido")
 
-        self.assertEqual(__, getattr(fido, "_name"))
+        self.assertEqual('Fido', getattr(fido, "_name"))
         # getattr(), setattr() and delattr() are a way of accessing attributes
         # by method rather than through assignment operators
 
-        self.assertEqual(__, fido.__dict__["_name"])
+        self.assertEqual('Fido', fido.__dict__["_name"])
         # Yes, this works here, but don't rely on the __dict__ object! Some
         # class implementations use optimization which result in __dict__ not
         # showing everything.
@@ -66,8 +66,8 @@ class AboutClasses(Koan):
         fido = self.Dog3()
         fido.set_name("Fido")
 
-        self.assertEqual(__, fido.get_name())  # access as method
-        self.assertEqual(__, fido.name)        # access as property
+        self.assertEqual("Fido", fido.get_name())  # access as method
+        self.assertEqual("Fido", fido.name)        # access as property
 
     # ------------------------------------------------------------------
 
@@ -87,7 +87,7 @@ class AboutClasses(Koan):
         fido = self.Dog4()
 
         fido.name = "Fido"
-        self.assertEqual(__, fido.name)
+        self.assertEqual("Fido", fido.name)
 
     # ------------------------------------------------------------------
 
@@ -101,10 +101,10 @@ class AboutClasses(Koan):
 
     def test_init_provides_initial_values_for_instance_variables(self):
         fido = self.Dog5("Fido")
-        self.assertEqual(__, fido.name)
+        self.assertEqual("Fido", fido.name)
 
     def test_args_must_match_init(self):
-        self.assertRaises(___, self.Dog5)  # Evaluates self.Dog5()
+        self.assertRaises(TypeError, self.Dog5)  # Evaluates self.Dog5()
 
         # THINK ABOUT IT:
         # Why is this so?
@@ -113,7 +113,7 @@ class AboutClasses(Koan):
         fido = self.Dog5("Fido")
         rover = self.Dog5("Rover")
 
-        self.assertEqual(____, rover.name == fido.name)
+        self.assertEqual(False, rover.name == fido.name)
 
     # ------------------------------------------------------------------
 
