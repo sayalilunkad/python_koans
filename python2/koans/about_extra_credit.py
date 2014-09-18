@@ -10,7 +10,7 @@
 # Write a player class and a Game class to complete the project.  This
 # is a free form assignment, so approach it however you desire.
 
-# from runner.koan import *
+from runner.koan import *
 import random
 
 
@@ -166,7 +166,7 @@ class game(object):
 
     def round(self):
         i = 0
-        while i<10:
+        while i < 10:
             for player in self.players:
                 self.turn(player)
             i += 1
@@ -181,34 +181,34 @@ class game(object):
             if score == winner_score:
                 self.winner = name
 
-    '''
+
 class AboutExtraCredit(Koan):
     # Write tests here. If you need extra test classes add them to the
     # test suite in runner/path_to_enlightenment.py
     def test_extra_credit_task(self):
         trial = game()
-        player_list = trial.players
-        print player_list
-        # self.assertEqual(['player0', 'player1', 'player2'], player_list)
-        # trial.init_total_score(player_list)
+        trial.round()
+        print("Winner is:", trial.get_winner())
 
+    '''
     def test_score(self):
 
-        #Test to calculate scores
-        #5 1 3 4 1 50 + 2 * 100 = 250
-        #1 1 1 3 1 1000 + 100 = 1100
-        #2 4 4 5 4 400 + 50 = 450
-        #
-#       dice = DiceSet()
-#       test = dice.roll(5)
-#       print test
-#       self.assertEqual(score(test), 150)
+
+        Test to calculate scores
+        5 1 3 4 1 50 + 2 * 100 = 250
+        1 1 1 3 1 1000 + 100 = 1100
+        2 4 4 5 4 400 + 50 = 450
+        dice = DiceSet()
+        test = dice.roll(5)
+        print test
+        self.assertEqual(score(test), 150)
         self.assertEqual(score([5, 1, 3, 4, 1]), 250)
         self.assertEqual(score([1, 1, 1, 3, 1]), 1100)
         self.assertEqual(score([2, 4, 4, 5, 4]), 450)
         pass
-    '''
+
 if __name__ == '__main__':
     greed = game()
     greed.round()
     print("The Winner is", greed.get_winner())
+    '''
